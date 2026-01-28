@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인사노무 설문조사</title>
+</head>
+<body>
+  <h1>기업 내 인사노무 설문조사</h1>
+  
+  <hr>
+  
+  <p>
+    안녕하세요. <strong>인사팀</strong>입니다.
+    <br>
+    <br>
+    본 설문조사는 직원들의 <mark>의견을 수렴</mark>하여 더 나은 근무 환경을 만들기 위해 진행됩니다.
+    <br>
+    여러분의 소중한 의견을 들려주세요.
+  </p>
+
+  <hr>
+
+  <h2>설문조사 안내</h2>
+  <ul>
+    <li>설문 소요 시간: 약 5분</li>
+    <li>응답 기간: 2026년 1월 28일 ~ 2월 10일</li>
+    <li>개인정보는 <strong>익명</strong>으로 처리됩니다</li>
+  </ul>
+
+  <p>
+    문의사항이 있으시면 
+    <a href="mailto:hrm@ozcompany.com" target="_blank">인사팀 이메일</a>
+    로 연락주세요.
+  </p>
+
+  <hr>
+
+  <form action="survey_result.php" method="post">
+    
+    <h2>1. 기본 정보</h2>
+    
+    <label for="dept">소속 부서</label>
+    <select id="dept" name="department">
+      <option value="">선택해주세요</option>
+      <option value="hr">인사팀</option>
+      <option value="finance">경영지원팀</option>
+      <option value="sales">영업팀</option>
+      <option value="dev">개발팀</option>
+      <option value="marketing">마케팅팀</option>
+      <option value="other">기타</option>
+    </select>
+    
+    <br>
+    <br>
+    
+    <label for="emp_id">사원번호</label>
+    <input id="emp_id" type="text" name="employee_id" placeholder="사원번호를 입력하세요">
+    
+    <br>
+    <br>
+    
+    <label for="join_date">입사일</label>
+    <input id="join_date" type="date" name="join_date">
+    
+    <hr>
+
+    <h2>2. 업무 환경 만족도</h2>
+    
+    <p>다음 항목들에 대해 만족도를 체크해주세요.</p>
+    
+    <fieldset>
+      <legend>업무 환경 평가</legend>
+      
+      <label>
+        <input type="checkbox" name="satisfaction" value="work_hours"> 근무 시간이 적절합니다
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="satisfaction" value="workload"> 업무량이 적절합니다
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="satisfaction" value="workplace"> 사무실 환경이 쾌적합니다
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="satisfaction" value="equipment"> 업무 장비가 충분합니다
+      </label>
+    </fieldset>
+    
+    <hr>
+
+    <h2>3. 복리후생 관련 의견</h2>
+    
+    <p>현재 제공되는 복리후생 항목을 확인해주세요.</p>
+    
+    <ol start="1" type="1">
+      <li>건강검진 지원</li>
+      <li>경조사비 지급</li>
+      <li>교육비 지원</li>
+      <li>식대 지원</li>
+      <li>교통비 지원</li>
+    </ol>
+    
+    <p>추가로 희망하는 복리후생 항목이 있으시면 작성해주세요.</p>
+    <textarea name="welfare_suggestion" cols="50" rows="5" placeholder="의견을 자유롭게 작성해주세요"></textarea>
+    
+    <hr>
+
+    <h2>4. 휴가 및 근무제도</h2>
+    
+    <table border="1">
+      <caption>
+        <strong>휴가 사용 현황</strong>
+      </caption>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>부여일수</th>
+          <th>사용일수</th>
+          <th>잔여일수</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>연차</td>
+          <td>15일</td>
+          <td>
+            <input type="number" name="used_annual" min="0" max="15" placeholder="사용일수">
+          </td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>반차</td>
+          <td>10일</td>
+          <td>
+            <input type="number" name="used_half" min="0" max="10" placeholder="사용일수">
+          </td>
+          <td>-</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">※ 잔여일수는 자동 계산됩니다</td>
+        </tr>
+      </tfoot>
+    </table>
+    
+    <br>
+    
+    <p>원하는 근무제도를 선택해주세요.</p>
+    <select name="work_system">
+      <option value="">선택해주세요</option>
+      <option value="flexible">유연근무제</option>
+      <option value="remote">재택근무</option>
+      <option value="hybrid">하이브리드 근무</option>
+      <option value="current">현행 유지</option>
+    </select>
+    
+    <hr>
+
+    <h2>5. 인사 평가 제도</h2>
+    
+    <p>인사 평가 제도에 대한 의견을 작성해주세요.</p>
+    <textarea name="evaluation_opinion" cols="50" rows="5" placeholder="인사 평가 제도에 대한 의견을 작성해주세요"></textarea>
+    
+    <hr>
+
+    <h2>6. 기타 의견</h2>
+    
+    <p>
+      인사노무 관련하여 <strong>개선이 필요한 사항</strong>이나 
+      <mark>의견</mark>이 있으시면 자유롭게 작성해주세요.
+    </p>
+    
+    <label for="other_opinion">의견 작성</label>
+    <br>
+    <textarea id="other_opinion" name="other_opinion" cols="50" rows="8" placeholder="의견을 자유롭게 작성해주세요"></textarea>
+    
+    <hr>
+
+    <h2>7. 설문 진행 상황</h2>
+    <p>설문 진행률</p>
+    <progress max="100" value="90"></progress>
+    <p>거의 완료되었습니다!</p>
+    
+    <hr>
+
+    <h2>제출</h2>
+    <p>
+      모든 항목을 작성하셨다면 아래 버튼을 눌러 제출해주세요.
+      <br>
+      제출 후에는 수정이 불가능하니 신중히 확인해주세요.
+    </p>
+    
+    <button type="button">임시 저장</button>
+    <input type="submit" value="제출하기">
+    
+    <br>
+    <br>
+    
+    <p>
+      <a href="https://www.ozcompany.com/hr" target="_blank">인사팀 홈페이지로 이동</a>
+    </p>
+    
+  </form>
+  
+  <hr>
+  
+  <div id="footer">
+    <p class="footer-text">© 2026 인사팀. All rights reserved.</p>
+    <p class="footer-text">
+      본 설문조사는 개인정보보호법에 따라 익명으로 처리 됩니다.
+    </p>
+  </div>
+  
+</body>
+</html>
